@@ -1,0 +1,53 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>fbfa598f-e95d-487b-871d-322a63b57bf2</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>OOP_Project_Mohamed_Hanniche_430625.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>OOP-Project_Mohamed Hanniche_430625</Name>
+    <RootNamespace>OOP-Project_Mohamed Hanniche_430625</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="MusicPlayer\main.py" />
+    <Compile Include="MusicPlayer\src\AcousticSong.py" />
+    <Compile Include="MusicPlayer\src\AudioContent.py" />
+    <Compile Include="MusicPlayer\src\Library.py" />
+    <Compile Include="MusicPlayer\src\LiveRecording.py" />
+    <Compile Include="MusicPlayer\src\Playlist.py" />
+    <Compile Include="MusicPlayer\src\Podcast.py" />
+    <Compile Include="MusicPlayer\src\Song.py" />
+    <Compile Include="MusicPlayer\src\__init__.py" />
+    <Compile Include="MusicPlayer\tests\test_music_player.py" />
+    <Compile Include="OOP_Project_Mohamed_Hanniche_430625.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MusicPlayer\" />
+    <Folder Include="MusicPlayer\src\" />
+    <Folder Include="MusicPlayer\tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MusicPlayer\pytest.ini" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
