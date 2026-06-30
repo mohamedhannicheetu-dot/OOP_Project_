@@ -1,9 +1,7 @@
 from .AudioContent import AudioContent
 
 
-# ── INHERITANCE ────────────────────────────────────────
-# Song inherits from AudioContent.
-# Represents a single music track with an artist and duration.
+# ── INHERITANCE ───────────────────────────────────────
 class Song(AudioContent):
 
     def __init__(self, title: str, artist: str, year: int, duration_secs: int, genre: str):
@@ -13,6 +11,10 @@ class Song(AudioContent):
 
     def get_genre(self) -> str:
         return self._genre
+
+    # POLYMORPHISM 
+    def skip_forward(self, current_position_secs: int) -> int:
+        return min(current_position_secs + 10, self._duration_secs)
 
     # POLYMORPHISM — Song's version of play()
     def play(self) -> str:
