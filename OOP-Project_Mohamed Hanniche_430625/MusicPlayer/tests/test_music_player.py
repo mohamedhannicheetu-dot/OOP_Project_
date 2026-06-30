@@ -13,8 +13,7 @@ from src.Playlist import Playlist
 from src.Library import Library
 
 
-# ── ABSTRACTION ────────────────────────────────────────
-
+# ── ABSTRACTION ────────────────────────
 class TestAbstraction(unittest.TestCase):
 
     def test_audio_content_is_abstract(self):
@@ -22,7 +21,7 @@ class TestAbstraction(unittest.TestCase):
             AudioContent("Title", "Creator", 2024)
 
 
-# ── SONG ───────────────────────────────────────────────
+# ── SONG ─────────────
 
 class TestSong(unittest.TestCase):
 
@@ -55,7 +54,7 @@ class TestSong(unittest.TestCase):
         self.assertIn("Rock", info)
 
 
-# ── ACOUSTIC SONG ──────────────────────────────────────
+# ── ACOUSTIC SONG ──────
 
 class TestAcousticSong(unittest.TestCase):
 
@@ -78,7 +77,7 @@ class TestAcousticSong(unittest.TestCase):
         self.assertIn("Abbey Road Studios", info)
 
 
-# ── LIVE RECORDING ─────────────────────────────────────
+# ── LIVE RECORDING ──────────────────────────
 
 class TestLiveRecording(unittest.TestCase):
 
@@ -102,7 +101,7 @@ class TestLiveRecording(unittest.TestCase):
         self.assertIn("London", info)
 
 
-# ── PODCAST ────────────────────────────────────────────
+# ── PODCAST ──────
 
 class TestPodcast(unittest.TestCase):
 
@@ -137,8 +136,9 @@ class TestPodcast(unittest.TestCase):
         self.assertIn("Ep.421", info)
 
 
-# ── POLYMORPHISM ───────────────────────────────────────
+# ── POLYMORPHISM ─────
 
+# ── POLYMORPHISM ─────
 class TestPolymorphism(unittest.TestCase):
 
     def test_all_types_return_string_from_play(self):
@@ -162,9 +162,21 @@ class TestPolymorphism(unittest.TestCase):
         live = LiveRecording("Same Title", "Queen", 1975, 200, "Wembley", "London")
         self.assertNotEqual(song.play(), live.play())
 
+    def test_skip_forward_mechanisms_differ_by_type(self):
+        song = Song("Song Title", "Artist", 2020, 200, "Rock")
+        podcast = Podcast("Podcast Title", "Host", 2020, 1, 60, "Topic")
+        live = LiveRecording("Live Title", "Artist", 2020, 200, "Venue", "City")
 
-# ── PLAYLIST ───────────────────────────────────────────
+        # 1. Song should skip forward by 10 seconds (20 -> 30)
+        self.assertEqual(song.skip_forward(20), 30)
 
+        # 2. Podcast should skip forward by 30 seconds (20 -> 50)
+        self.assertEqual(podcast.skip_forward(20), 50)
+
+        # 3. Live Recording should jump straight to the end (20 -> 200)
+        self.assertEqual(live.skip_forward(20), 200)
+
+# ── PLAYLIST ───────────
 class TestPlaylist(unittest.TestCase):
 
     def setUp(self):
@@ -195,7 +207,7 @@ class TestPlaylist(unittest.TestCase):
         self.assertIn("Bohemian Rhapsody", captured.getvalue())
 
 
-# ── LIBRARY ────────────────────────────────────────────
+# ── LIBRARY ──────────────────────────
 
 class TestLibrary(unittest.TestCase):
 

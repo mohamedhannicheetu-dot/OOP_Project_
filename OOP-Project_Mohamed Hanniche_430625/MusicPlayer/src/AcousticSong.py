@@ -1,9 +1,7 @@
 from .Song import Song
 
 
-# ── INHERITANCE (2nd level) ────────────────────────────
-# AcousticSong inherits from Song.
-# Represents a song recorded with acoustic/unplugged instruments.
+# ── INHERITANCE (2nd level) ─────────────────────
 class AcousticSong(Song):
 
     def __init__(self, title: str, artist: str, year: int, duration_secs: int, venue: str):
@@ -13,7 +11,7 @@ class AcousticSong(Song):
     def get_venue(self) -> str:
         return self._venue
 
-    # POLYMORPHISM — AcousticSong plays differently, mentioning the venue
+    # POLYMORPHISM — AcousticSong plays differently, mentioning the venue.
     def play(self) -> str:
         return (
             f"♪  Playing acoustic version of '{self._title}' by {self._creator} "

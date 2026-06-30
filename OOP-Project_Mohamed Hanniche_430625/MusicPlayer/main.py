@@ -45,10 +45,11 @@ if __name__ == "__main__":
     playlist.play_all()
 
     # ── Polymorphism demonstration ─────────────────────
-    print("=== Polymorphism: same call, different output ===")
+    print("=== Polymorphism: skip_forward() differs by mechanism ===")
     items: list[AudioContent] = [song1, acoustic, live, podcast1]
     for item in items:
-        print(f"  {type(item).__name__:15} | {item.get_duration_label()}")
+        new_pos = item.skip_forward(current_position_secs=20)
+        print(f"  {type(item).__name__:15} | from 0:20s, skip_forward() -> {new_pos}s")
 
     # ── Abstraction test ───────────────────────────────
     print("\n=== Abstraction test ===")

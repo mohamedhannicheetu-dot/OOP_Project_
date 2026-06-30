@@ -2,8 +2,7 @@ from .AudioContent import AudioContent
 
 
 # ── COMPOSITION ────────────────────────────────────────
-# Playlist is composed of AudioContent objects (has-a relationship).
-# It is NOT part of the inheritance tree.
+# Playlist is composed of AudioContent objects.
 class Playlist:
 
     def __init__(self, name: str, owner: str):
@@ -30,7 +29,7 @@ class Playlist:
     def count(self) -> int:
         return len(self._items)
 
-    # POLYMORPHISM — calls play() on every item without knowing its type
+    # POLYMORPHISM 
     def play_all(self):
         print(f"\n=== {self._name} (owner: {self._owner}) ===")
         if not self._items:

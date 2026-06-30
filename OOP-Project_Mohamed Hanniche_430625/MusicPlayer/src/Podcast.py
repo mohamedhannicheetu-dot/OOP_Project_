@@ -2,8 +2,7 @@ from .AudioContent import AudioContent
 
 
 # ── INHERITANCE ────────────────────────────────────────
-# Podcast inherits from AudioContent.
-# Represents a podcast episode with a host and episode number.
+# Podcast inherits from AudioContent
 class Podcast(AudioContent):
 
     def __init__(self, title: str, host: str, year: int, episode: int, duration_mins: int, topic: str):
@@ -17,6 +16,11 @@ class Podcast(AudioContent):
 
     def get_topic(self) -> str:
         return self._topic
+
+    # POLYMORPHISM —
+    def skip_forward(self, current_position_secs: int) -> int:
+        total_secs = self._duration_mins * 60
+        return min(current_position_secs + 30, total_secs)
 
     # POLYMORPHISM — Podcast play() mentions episode number and topic
     def play(self) -> str:
